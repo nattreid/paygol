@@ -1,0 +1,5 @@
+web:
+    hooks:
+        paygol:
+            title: "Paygol"
+            serviceId: "Service ID"
