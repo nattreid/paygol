@@ -6,6 +6,7 @@ extensions:
 
 bPayments:
     serviceId: '123456789'
+    conversionRate: xx
 ```
 
 ### Použití

@@ -3,3 +3,4 @@ web:
         paygol:
             title: "Paygol"
             serviceId: "Id služby (Service ID)"
+            conversionRate: "Konverzní poměr"

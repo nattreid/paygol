@@ -69,7 +69,7 @@ class PaygolClient
 			'pg_format' => 'json',
 			'pg_method' => $payment->method,
 			'pg_currency' => $payment->currency,
-			'pg_price' => $payment->price,
+			'pg_price' => $this->getPrice($payment->price),
 			'pg_custom' => $payment->identifier,
 			'pg_country' => $payer->country,
 			'pg_language' => $payer->language,
@@ -126,6 +126,14 @@ class PaygolClient
 		}
 
 		return new CheckoutResponse($result);
+	}
+
+	private function getPrice($price): float
+	{
+		if (!empty($this->config->conversionRate)) {
+			return 100 / (100 + $this->config->conversionRate) * $price;
+		}
+		return $price;
 	}
 }
 

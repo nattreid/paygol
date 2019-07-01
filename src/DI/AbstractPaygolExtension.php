@@ -19,7 +19,8 @@ abstract class AbstractPaygolExtension extends CompilerExtension
 
 	private $defaults = [
 		'url' => 'https://www.paygol.com/',
-		'serviceId' => null
+		'serviceId' => null,
+		'conversionRate' => null
 	];
 
 	public function loadConfiguration(): void
@@ -43,6 +44,7 @@ abstract class AbstractPaygolExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 		return $builder->addDefinition($this->prefix('config'))
 			->setFactory(PaygolConfig::class)
-			->addSetup('$serviceId', [$config['serviceId']]);
+			->addSetup('$serviceId', [$config['serviceId']])
+			->addSetup('$conversionRate', [$config['conversionRate']]);
 	}
 }

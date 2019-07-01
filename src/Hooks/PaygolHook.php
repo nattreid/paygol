@@ -36,6 +36,9 @@ class PaygolHook extends HookFactory
 		$form->addText('serviceId', 'webManager.web.hooks.paygol.serviceId')
 			->setDefaultValue($this->configurator->paygol->serviceId);
 
+		$form->addText('conversionRate', 'webManager.web.hooks.paygol.conversionRate')
+			->setDefaultValue($this->configurator->paygol->conversionRate);
+
 		$form->addSubmit('save', 'form.save');
 
 		$form->onSuccess[] = [$this, 'paygolFormSucceeded'];
@@ -48,6 +51,7 @@ class PaygolHook extends HookFactory
 		$config = $this->configurator->paygol;
 
 		$config->serviceId = $values->serviceId ?: null;
+		$config->conversionRate = $values->conversionRate ?: null;
 
 		$this->configurator->paygol = $config;
 

@@ -3,3 +3,4 @@ web:
         paygol:
             title: "Paygol"
             serviceId: "Service ID"
+            conversionRate: "Conversion rate"
