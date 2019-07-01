@@ -108,7 +108,7 @@ class PaygolClient
 	public function checkout(string $transactionId): CheckoutResponse
 	{
 		if (empty($this->config->serviceId)) {
-			throw new CredentialsNotSetException('Secret key must be set');
+			throw new CredentialsNotSetException('ServiceId key must be set');
 		}
 
 		$args = [
